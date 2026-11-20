@@ -29,13 +29,16 @@ export type Project = {
 
 export const PROFILE = {
   name: "江宗原",
-  title: "Technical PM｜專案主管（政府計畫 × 數位產品 × 平台交付）",
+  title: "Technical PM／AI 專案經理／軟體專案主管（近 18 年軟體開發、系統分析與專案管理經驗）",
   highlights: [
     "專案型態：政府補助/場域案 12–24 個月（聯合型 3 家協作）",
-    "協作：平均 3 個窗口；團隊 6–12 人（平均投入 9 人）",
+    "協作：平均 3 個對外窗口（客戶、合作廠商、場域單位）；管理 9–12 人工程團隊",
     "交付績效：如期交付率 100%；一次驗收通過率 90%",
-    "預算級距：單案 400 萬（補助 200 萬）～聯合案 2,000 萬（補助 1,000 萬）",
-    "常用工具：Trello、ClickUp",
+    "預算規模：曾統籌預算最高 2,000 萬元（補助 1,000 萬）的跨域聯合專案，協調 3 家合作廠商；單案 400 萬（補助 200 萬）",
+    "系統分析：SA/SD、REST API、OAuth、第三方金流與系統整合",
+    "技術背景：C#/.NET、React、Next.js、TypeScript；Hybrid App（Cordova、Ionic）",
+    "AI 應用：Claude Code、Codex 輔助需求分析、程式開發、測試與程式碼審查",
+    "常用工具：Trello、ClickUp；Git/GitHub；Vercel、Render、VPS 部署",
   ],
 } as const;
 
@@ -46,8 +49,8 @@ const COMMON_FE_ROLE = ["前端工程"] as const;
 const GOV_METRICS = [
   "如期交付率：100%（跨案）",
   "一次驗收通過率：90%（跨案）",
-  "協作：平均 3 個窗口；團隊 6–12 人（平均 9 人）",
-  "預算級距：單案 400 萬（補助 200 萬）～聯合案 2,000 萬（補助 1,000 萬）",
+  "協作：平均 3 個對外窗口；管理 9–12 人工程團隊",
+  "預算規模：曾統籌預算最高 2,000 萬元（補助 1,000 萬）的跨域聯合專案，協調 3 家合作廠商；單案 400 萬（補助 200 萬）",
 ] as const;
 
 const GOV_DOCS = [
@@ -96,19 +99,19 @@ export const PROJECTS: Project[] = [
   // 1) 家樂福（必放 Featured）
   {
     id: "featured-carrefour",
-    title: "家樂福 Carrefour（官網/活動頁 + 介面協作）",
+    title: "家樂福 Carrefour－官網與 App 專案",
     category: "Website",
     featured: true,
     role: [...COMMON_PM_ROLE, ...COMMON_ER_ROLE],
     deliverables: [
         "交付：Carrefour Taiwan 官方網站（RWD）",
-        "交付：開發 Carrefour Pay系統",
-        "交付：Andorid、iOS APP，與APP後台並上架於雙平台商城", 
-        "交付：SASD規格書、系統操作文件/驗收文件，UIXUI設計稿、原型",
-        "交付：串接宜睿（Edenred) 系統",
+        "交付：開發 Carrefour Pay 系統",
+        "交付：Android、iOS APP 與 APP 後台，並上架於雙平台商城",
+        "交付：SASD 規格書、系統操作文件/驗收文件、UI/UX 設計稿、原型",
+        "交付：串接宜睿（Edenred）系統",
         "交付：串接 Carrefour 點數系統",
         "交付：串接 Carrefour 線上會員卡系統",
-        "交付：介面/功能協作與上線驗收 "        
+        "交付：介面/功能協作與上線驗收",
     ],
     links: [{ label: "Site", url: url("www.carrefour.com.tw") }],
   },
@@ -137,10 +140,10 @@ export const PROJECTS: Project[] = [
     links: [{ label: "Store", url: url("goo.gl/lItQKg") }],
   },
 
-  // 3) 台大補習班（補齊你指定交付）
+  // 3) 台北明明補習班（補齊你指定交付）
   {
     id: "featured-taidaschool",
-    title: "台大補習班：官網前後台 + 學生專區/員工專區（前後台）+ 學生簽到系統",
+    title: "台北明明補習班－整合資訊管理系統（官網前後台 + 學生專區/員工專區前後台 + 學生簽到系統）",
     category: "System",
     featured: true,
     role: [...COMMON_PM_ROLE],
@@ -166,7 +169,7 @@ export const PROJECTS: Project[] = [
       "交付：AR 互動影像/導覽模組 1 套",
       "交付：LINE AI 客服機器人 1 套（情境/FAQ/流程）",
       "交付：AI 影像辨識模組 1 套（辨識流程/回報介面）",
-      "交付：簽章/優惠券活動 1 套（含上線與活動驗收）",
+      "交付：集章/優惠券活動系統 1 套（含上線與活動驗收）",
       `交付文件：${GOV_DOCS.join("、")}`,
     ],
     metrics: [...GOV_METRICS, "活動：11/27 成果發表交付"],
@@ -277,7 +280,7 @@ export const PROJECTS: Project[] = [
     title: "生活食堂 AlwaysLunch（訂閱制餐點/訂單系統 + App）",
     category: "Product/App",
     role: [...COMMON_PM_ROLE, ...COMMON_ER_ROLE],
-    deliverables: ["交付：訂閱制訂餐服務 1 套（前台+後台）", "交付：SASD規格書、系統操作文件/驗收文件，UIXUI設計稿、原型","交付：App 1 套（Android）", "交付：上線驗收 1 次"],
+    deliverables: ["交付：訂閱制訂餐服務 1 套（前台+後台）", "交付：SASD 規格書、系統操作文件/驗收文件、UI/UX 設計稿、原型","交付：App 1 套（Android）", "交付：上線驗收 1 次"],
     links: [{ label: "Site", url: url("www.dingtable.com") }],
   },
   {
@@ -285,7 +288,7 @@ export const PROJECTS: Project[] = [
     title: "BitoPro BELS NFT 交易平台（前台 + 營運功能）",
     category: "Product/App",
     role: [...COMMON_PM_ROLE, ...COMMON_ER_ROLE],
-    deliverables: ["交付：交易平台前台 1 站", "交付：SASD規格書、系統操作文件/驗收文件，UIXUI設計稿、原型","交付：營運/管理功能 1 套", "交付：上線驗收 1 次"],
+    deliverables: ["交付：交易平台前台 1 站", "交付：SASD 規格書、系統操作文件/驗收文件、UI/UX 設計稿、原型","交付：營運/管理功能 1 套", "交付：上線驗收 1 次"],
     links: [{ label: "Site", url: url("www.bels.co") }],
   },
 
@@ -298,49 +301,49 @@ export const PROJECTS: Project[] = [
     title: "ZYXEL（合勤）：Router 管理系統／ERP（前端介面交付）",
     category: "System",
     role: [...COMMON_PM_ROLE],
-    deliverables: ["交付：Router 管理介面 1 套", "交付：ERP 介面/流程 1 套", "交付：SASD規格書、系統操作文件/驗收文件，UIXUI設計稿、原型","交付：UAT/驗收 1 套"],
+    deliverables: ["交付：Router 管理介面 1 套", "交付：ERP 介面/流程 1 套", "交付：SASD 規格書、系統操作文件/驗收文件、UI/UX 設計稿、原型","交付：UAT/驗收 1 套"],
   },
   {
     id: "sys-caiyuan-verify",
     title: "采園生態驗證有限公司：驗證平台系統",
     category: "System",
     role: [...COMMON_PM_ROLE],
-    deliverables: ["交付：驗證流程/資料管理系統 1 套", "交付：管理介面 1 套", "交付：SASD規格書、系統操作文件/驗收文件，UIXUI設計稿、原型","交付：UAT/驗收 1 套"],
+    deliverables: ["交付：驗證流程/資料管理系統 1 套", "交付：管理介面 1 套", "交付：SASD 規格書、系統操作文件/驗收文件、UI/UX 設計稿、原型","交付：UAT/驗收 1 套"],
   },
   {
     id: "sys-dhl-tool",
     title: "DHL 物流查詢整合與工具介面",
     category: "System",
     role: [...COMMON_PM_ROLE],
-    deliverables: ["交付：查詢整合介面 1 套", "交付：API 介接/權限流程 1 套", "交付：SASD規格書、系統操作文件/驗收文件，UIXUI設計稿、原型","交付：UAT/驗收 1 套"],
+    deliverables: ["交付：查詢整合介面 1 套", "交付：API 介接/權限流程 1 套", "交付：SASD 規格書、系統操作文件/驗收文件、UI/UX 設計稿、原型","交付：UAT/驗收 1 套"],
   },
   {
     id: "sys-onepage-internal",
     title: "OnePage（公司內部系統）",
     category: "System",
     role: [...COMMON_PM_ROLE],
-    deliverables: ["交付：內部系統 1 套（前台+管理端）", "交付：App 1 套（內部用）", "交付：SASD規格書、系統操作文件/驗收文件，UIXUI設計稿、原型","交付：UAT/驗收 1 套"],
+    deliverables: ["交付：內部系統 1 套（前台+管理端）", "交付：App 1 套（內部用）", "交付：SASD 規格書、系統操作文件/驗收文件、UI/UX 設計稿、原型","交付：UAT/驗收 1 套"],
   },
   {
     id: "sys-kmsn-monitor",
     title: "KMSN 網頁監控系統",
     category: "System",
     role: [...COMMON_PM_ROLE],
-    deliverables: ["交付：監控/告警介面 1 套", "交付：報表/管理功能 1 套", "交付：SASD規格書、系統操作文件/驗收文件，UIXUI設計稿、原型","交付：UAT/驗收 1 套"],
+    deliverables: ["交付：監控/告警介面 1 套", "交付：報表/管理功能 1 套", "交付：SASD 規格書、系統操作文件/驗收文件、UI/UX 設計稿、原型","交付：UAT/驗收 1 套"],
   },
   {
     id: "sys-auction",
     title: "拍賣競標系統（整合拍賣站/競標流程）",
     category: "System",
     role: [...COMMON_PM_ROLE],
-    deliverables: ["交付：競標/出價流程 1 套", "交付：後台管理 1 套", "交付：SASD規格書、系統操作文件/驗收文件，UIXUI設計稿、原型","交付：UAT/驗收 1 套"],
+    deliverables: ["交付：競標/出價流程 1 套", "交付：後台管理 1 套", "交付：SASD 規格書、系統操作文件/驗收文件、UI/UX 設計稿、原型","交付：UAT/驗收 1 套"],
   },
   {
     id: "sys-comma",
     title: "逗點教室後台管理系統",
     category: "System",
     role: [...COMMON_PM_ROLE],
-    deliverables: ["交付：後台管理系統 1 套（權限/內容/營運）", "交付：SASD規格書、系統操作文件/驗收文件，UIXUI設計稿、原型","交付：UAT/驗收 1 套"],
+    deliverables: ["交付：後台管理系統 1 套（權限/內容/營運）", "交付：SASD 規格書、系統操作文件/驗收文件、UI/UX 設計稿、原型","交付：UAT/驗收 1 套"],
     links: [{ label: "Site", url: url("comma.jfetek.com") }],
   },
   {
@@ -348,7 +351,7 @@ export const PROJECTS: Project[] = [
     title: "臺北市校園數位氣象網",
     category: "System",
     role: [...COMMON_PM_ROLE],
-    deliverables: ["交付：資訊入口/查詢系統 1 套", "交付：SASD規格書、系統操作文件/驗收文件，UIXUI設計稿、原型"],
+    deliverables: ["交付：資訊入口/查詢系統 1 套", "交付：SASD 規格書、系統操作文件/驗收文件、UI/UX 設計稿、原型"],
     links: [{ label: "Site", url: url("weather.tp.edu.tw") }],
   },
   {
@@ -356,7 +359,7 @@ export const PROJECTS: Project[] = [
     title: "I DONATE - 為愛相挺，溫暖同行（募捐平台）",
     category: "System",
     role: [...COMMON_PM_ROLE],
-    deliverables: ["交付：募捐平台 1 套（前台+管理端）", "交付：SASD規格書、系統操作文件/驗收文件，UIXUI設計稿、原型"],
+    deliverables: ["交付：募捐平台 1 套（前台+管理端）", "交付：SASD 規格書、系統操作文件/驗收文件、UI/UX 設計稿、原型"],
   },
 
   // =========================

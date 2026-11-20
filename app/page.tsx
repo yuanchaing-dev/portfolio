@@ -132,7 +132,7 @@ export default function Page() {
             <div className="mt-5 flex flex-wrap gap-2">
               <StatPill label="如期交付率" value="100%" />
               <StatPill label="一次驗收通過" value="90%" />
-              <StatPill label="團隊規模" value="6–12 人（均 9）" />
+              <StatPill label="團隊規模" value="9–12 人" />
               <StatPill label="協作窗口" value="平均 3 個" />
               <StatPill label="單案/聯合預算" value="400–2,000 萬" />
               <StatPill label="工具" value="Trello / ClickUp" />
