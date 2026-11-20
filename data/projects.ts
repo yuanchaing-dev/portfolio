@@ -3,6 +3,7 @@
 export type ProjectCategory =
   | "Gov Program"
   | "Product/App"
+  | "SaaS"
   | "System"
   | "Ecommerce"
   | "Website";
@@ -17,6 +18,7 @@ export type Project = {
   featured?: boolean; // Featured 區塊用（非 category）
   hidden?: boolean; // 預設隱藏（可用 UI 勾選顯示）
 
+  summary?: string[]; // 專案說明（段落）
   role: string[];
   deliverables: string[];
 
@@ -29,7 +31,76 @@ export type Project = {
 
 export const PROFILE = {
   name: "江宗原",
-  title: "Technical PM／AI 專案經理／軟體專案主管（近 18 年軟體開發、系統分析與專案管理經驗）",
+  nameEn: "Ken Chiang",
+  title: "Technical PM／AI 專案經理／軟體專案主管",
+  tagline: "近 18 年軟體開發、系統分析與專案管理經驗",
+  avatar: "/avatar.jpg",
+  contact: [
+    { icon: "mail", label: "yuanchaing@gmail.com", href: "mailto:yuanchaing@gmail.com" },
+    { icon: "github", label: "github.com/yuanchaing-dev", href: "https://github.com/yuanchaing-dev" },
+    { icon: "pin", label: "台北市內湖區", href: undefined },
+  ],
+  about: [
+    "具近 18 年軟體開發、系統分析與專案管理經驗，現任傑飛特科技軟體專案主管，主要負責企業 Web／App 系統與政府研發計畫的需求規劃、開發管理、跨團隊協作及交付驗收。",
+    "具備 C#/.NET、React、Next.js、TypeScript 等開發與系統整合背景，熟悉 SA/SD、REST API、OAuth 及第三方金流串接；近年運用 Claude Code、Codex 等 AI 工具協助系統規劃、程式開發與審查。",
+  ],
+  skills: [
+    "專案管理（WBS／風險／UAT）",
+    "系統分析 SA/SD",
+    "API／OAuth／金流整合",
+    "React／Next.js／TypeScript",
+    "C#／ASP.NET MVC",
+    "Claude Code／Codex",
+  ],
+  languages: [
+    { name: "中文", level: "精通" },
+    { name: "英文", level: "中等" },
+  ],
+  jobPreferences: [
+    { label: "工作性質", value: "全職・日班" },
+    { label: "可上班日", value: "錄取後隨時可上班" },
+    { label: "希望地點", value: "台北市、新北市、宜蘭縣、基隆市、桃園市" },
+  ],
+  certifications: [
+    {
+      title: "數位發展部 AI 技術服務能量登錄",
+      detail: "申請通過並取得「智慧客服」服務項目登錄證書（數位產業署・數位服務機構能量登錄證書）",
+      meta: "登錄類別：人工智慧技術服務機構",
+      period: "2026/10/15 取得・有效至 2028/10/15",
+      href: "https://www.jfetek.com/news/55",
+    },
+  ],
+  education: [
+    { school: "私立淡江大學", degree: "土木工程所 博士肄業", period: "2006/6 – 2007/9" },
+    { school: "私立中華大學", degree: "土木工程所 碩士畢業", period: "2002/9 – 2004/6" },
+  ],
+  experience: [
+    {
+      title: "軟體專案主管",
+      company: "傑飛特科技股份有限公司・管理 9–12 人",
+      period: "2008/10 – 至今",
+      points: [
+        "專案規劃與管理：政府補助研發計畫及企業系統專案的需求訪談、計畫內容設計、WBS/Gantt 排程、預算與資源配置、風險管理及期中、期末驗收。",
+        "團隊與跨廠商協作：統籌前端、後端、UI/UX 與測試工作；平均協作 3 個對外窗口（客戶、合作廠商及場域單位）。",
+        "系統分析與架構規劃：主導 SA/SD、UI 規格、系統功能與資料流程設計，協調 API、OAuth、金流及第三方服務介接。",
+        "品質與交付驗收：規劃 UAT 測試、缺陷追蹤、資安風險檢核及驗收文件，以 Trello、ClickUp 管理里程碑與需求變更。",
+        "AI 與開發流程應用：運用 Claude Code、Codex 輔助需求分析、程式開發、測試與 Code Review。",
+        "AI 服務能量登錄：申請通過數位發展部 AI 技術服務能量登錄，取得智慧客服服務項目登錄證書（2026/10）。",
+      ],
+    },
+    {
+      title: "C# .NET 後端工程師",
+      company: "聯宏資通股份有限公司",
+      period: "2005/8 – 2006/2",
+      points: ["負責系統分析、UI 介面設計、C# .NET Web 系統開發與維護，協助教育訓練課程規劃與導入。"],
+    },
+    {
+      title: "講師",
+      company: "聯成電腦有限公司",
+      period: "2005/2 – 2006/5",
+      points: ["擔任多媒體與認證課程講師，負責教學與課程規劃。"],
+    },
+  ],
   highlights: [
     "專案型態：政府補助/場域案 12–24 個月（聯合型 3 家協作）",
     "協作：平均 3 個對外窗口（客戶、合作廠商、場域單位）；管理 9–12 人工程團隊",
@@ -45,6 +116,7 @@ export const PROFILE = {
 const COMMON_PM_ROLE = ["Technical PM", "專案管理", "軟體規劃/SA", "交付與驗收負責"] as const;
 const COMMON_ER_ROLE = ["雙平台 APP 開發", "前端工程"] as const;
 const COMMON_FE_ROLE = ["前端工程"] as const;
+const DEV_LEAD_ROLE = ["開發", "管理", "資安", "驗收"] as const;
 
 const GOV_METRICS = [
   "如期交付率：100%（跨案）",
@@ -77,6 +149,7 @@ function url(u: string) {
 export const CATEGORY_LABELS: Record<ProjectCategory, string> = {
   "Gov Program": "政府計畫／場域案",
   "Product/App": "產品／APP",
+  SaaS: "Web SaaS 產品",
   System: "系統／平台",
   Ecommerce: "電商／商城",
   Website: "網站／官網",
@@ -86,6 +159,7 @@ export const CATEGORY_LABELS: Record<ProjectCategory, string> = {
 export const CATEGORY_ORDER: ProjectCategory[] = [
   "Gov Program",
   "Product/App",
+  "SaaS",
   "System",
   "Ecommerce",
   "Website",
@@ -276,6 +350,33 @@ export const PROJECTS: Project[] = [
   // 產品 / App（非政府：不保留 metrics）
   // =========================
   {
+    id: "app-moneygo",
+    title: "MoneyGo｜金融科技行動應用程式開發",
+    category: "Product/App",
+    summary: [
+      "主導 MoneyGo 金融科技行動應用程式之端到端開發與交付，全面負責產品需求分析、系統架構設計、技術選型、核心功能開發、專案管理及測試驗收。整合產品設計與軟體工程實務，透過模組化架構、系統整合、安全性設計及品質控管，確保產品具備良好的可維護性、擴充性與穩定性，展現獨立主導複雜軟體專案及完整產品生命週期管理之能力。",
+    ],
+    role: [...DEV_LEAD_ROLE],
+    deliverables: [
+      "交付：雙平台 APP 上架",
+      "交付：原始檔",
+      "交付：SASD 規格書、系統操作文件/驗收文件、UI/UX 設計稿、原型",
+    ],
+    links: [{ label: "Site", url: url("https://www.moneygo.com.tw/?lang=zh-tw") }],
+  },
+  {
+    id: "app-carrefour",
+    title: "家樂福 APP",
+    category: "Product/App",
+    role: [...COMMON_PM_ROLE, "雙平台 APP 開發"],
+    deliverables: [
+      "交付：SASD 規格書、系統操作文件/驗收文件、UI/UX 設計稿、原型",
+      "交付：雙平台 APP 上架（含測試）",
+      "交付：上線驗收 1 次",
+      "交付：後續營運維護",
+    ],
+  },
+  {
     id: "app-alwayslunch",
     title: "生活食堂 AlwaysLunch（訂閱制餐點/訂單系統 + App）",
     category: "Product/App",
@@ -290,6 +391,108 @@ export const PROJECTS: Project[] = [
     role: [...COMMON_PM_ROLE, ...COMMON_ER_ROLE],
     deliverables: ["交付：交易平台前台 1 站", "交付：SASD 規格書、系統操作文件/驗收文件、UI/UX 設計稿、原型","交付：營運/管理功能 1 套", "交付：上線驗收 1 次"],
     links: [{ label: "Site", url: url("www.bels.co") }],
+  },
+
+  // =========================
+  // Web SaaS 產品（非政府：不保留 metrics）
+  // =========================
+  {
+    id: "saas-zhuqin",
+    title: "築勤 ZhuQin｜營造工程智慧差勤與工地管理 SaaS 平台",
+    category: "SaaS",
+    summary: [
+      "主導規劃針對中小型營造企業的雲端工地管理 SaaS 平台，整合 LINE LIFF 行動打卡、GPS 地理圍欄驗證、多工地人員調度、出勤審核、工數核定、薪資試算及施工日誌管理，解決傳統工程行依賴紙本與 Excel 管理的痛點。",
+      "系統採用 Next.js、React、TypeScript、Node.js、PostgreSQL 與 Prisma 建置，透過 Multi-Tenant 架構、RBAC 角色權限及 PostgreSQL RLS 實現多企業資料隔離，並整合 LINE 生態系降低員工使用門檻。",
+      "專案涵蓋產品需求分析、系統架構規劃、UI/UX 設計、AI 輔助開發、測試驗收及雲端部署規劃，具備從產品構想到 SaaS 系統落地的完整實務經驗。",
+    ],
+    role: ["產品規劃", "系統架構", "專案管理", "AI 輔助開發"],
+    deliverables: [
+      "交付：LINE LIFF 行動打卡與 GPS 地理圍欄驗證",
+      "交付：多工地人員調度、出勤審核與工數核定",
+      "交付：薪資試算與施工日誌管理",
+      "交付：Multi-Tenant 架構、RBAC 角色權限與 PostgreSQL RLS 多企業資料隔離",
+      "交付：產品需求分析、系統架構規劃、UI/UX 設計、測試驗收及雲端部署規劃",
+    ],
+    techOrTools: ["Next.js", "React", "TypeScript", "Node.js", "PostgreSQL", "Prisma", "LINE LIFF"],
+    links: [{ label: "系統登入", url: url("https://zhuqin.jfetek.com/admin") }],
+  },
+  {
+    id: "saas-ai-translate",
+    title: "LINE 翻譯機器人｜橋語翻譯（LINE 群組多語自動互譯）",
+    category: "SaaS",
+    role: [...DEV_LEAD_ROLE],
+    deliverables: [
+      "交付：LINE 群組翻譯 Bot（中文 ⇄ 印尼、越南、泰、菲律賓、英文雙向自動翻譯）",
+      "交付：群組認領與啟用流程（一次性認領碼綁定、後台設定外語與翻譯模式）",
+      "交付：管理後台（用量、設定、訂單）與訂閱方案（免費／Pro／企業）",
+      "交付：隱私設計：不儲存對話原文與譯文",
+    ],
+    techOrTools: ["LINE Bot", "SaaS 訂閱"],
+    links: [{ label: "Site", url: url("https://www.jfetek.com/ai-translate/") }],
+  },
+  {
+    id: "saas-shiftgo",
+    title: "ShiftGo 餐勤通｜餐飲店 LINE 智慧排班管理",
+    category: "SaaS",
+    role: [...DEV_LEAD_ROLE],
+    deliverables: [
+      "交付：員工端 LINE 排休、上下班打卡、請假與查班表（免安裝 App）",
+      "交付：Web 後台排班與假勤／代班管理",
+      "交付：AI 排班建議與班表草稿（店長確認後才發布）",
+      "交付：出勤紀錄整理、工時與薪資試算、營運分析",
+      "交付：多店管理與訂閱方案（基本版／白金版最多 5 家店／客製方案）",
+    ],
+    techOrTools: ["LINE", "AI 排班", "SaaS 訂閱"],
+    links: [{ label: "Site", url: url("https://www.jfetek.com/shiftgo-ai/") }],
+  },
+  {
+    id: "saas-ai-booking",
+    title: "掌席｜餐飲店 LINE 訂位與 AI 智慧客服",
+    category: "SaaS",
+    role: [...DEV_LEAD_ROLE],
+    deliverables: [
+      "交付：LINE 官方帳號 AI 客服（24 小時回覆，常見問答與後台共用知識庫）",
+      "交付：LINE 線上訂位與提醒（人數／兒童椅／低消規則、爽約風險標示、一鍵關閉當日訂位）",
+      "交付：熟客建檔與會員分群標籤",
+      "交付：客訴處理方案（AI 偵測不滿先行安撫）",
+      "交付：店家營運後台（今日營運、預約、客訴）",
+      "交付：現場候位掃碼取號、行銷推播與 Google 評論分析",
+    ],
+    techOrTools: ["LINE 官方帳號", "AI 客服", "SaaS 訂閱"],
+    links: [{ label: "Site", url: url("https://www.jfetek.com/ai-booking/") }],
+  },
+  {
+    id: "saas-ai-admissions",
+    title: "班務助手 AI｜補習班 LINE 班群管理與 AI 招生客服",
+    category: "SaaS",
+    role: [...DEV_LEAD_ROLE],
+    deliverables: [
+      "交付：五大服務入口整合（LINE 班群 BOT、家長服務帳號、招生客服帳號、官網 AI Widget、LIFF 私人查詢頁）",
+      "交付：AI 對話協助（只用核准資料回答，不確定不亂答；導師已回答時不搶答）",
+      "交付：案件與真人接手（狀態、負責人、期限，高風險優先）",
+      "交付：招生詢問追蹤（來源、需求、首次聯絡期限）",
+      "交付：LIFF 身分驗證私人流程（成績、費用等私人資料）",
+      "交付：營運總覽後台",
+    ],
+    techOrTools: ["LINE Bot", "LIFF", "AI 客服", "Web Widget"],
+    links: [{ label: "Site", url: url("https://www.jfetek.com/ai-admissions/") }],
+  },
+  {
+    id: "saas-tron-wallet",
+    title: "TRON 區塊鏈數位資產錢包與自動化金流管理系統",
+    category: "SaaS",
+    summary: [
+      "本專案的技術核心不僅是一般的加密貨幣轉帳功能，而是將 TRON 公鏈的資源經濟模型整合至企業金流系統，解決多錢包營運中常見的交易成本、資源調度、資產歸集及鏈上交易可靠性問題。",
+      "透過自營 Energy 能量池及自動化資產管理架構，使企業能以更具成本效益的方式管理大量 TRON 錢包與 TRC-20 交易，並為後續擴充數位資產支付、企業收款及鏈上資金管理服務提供技術基礎。",
+    ],
+    role: [...DEV_LEAD_ROLE],
+    deliverables: [
+      "交付：TRON 數位資產錢包與 TRC-20 交易管理",
+      "交付：自營 Energy 能量池與資源調度（降低交易成本）",
+      "交付：多錢包資產歸集與自動化資產管理",
+      "交付：鏈上交易可靠性處理",
+    ],
+    techOrTools: ["TRON", "TRC-20", "Energy 能量池"],
   },
 
   // =========================
